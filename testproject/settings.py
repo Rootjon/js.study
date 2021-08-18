@@ -40,8 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'cloudinary_storage',
+    'cloudinary',
+    'storages',
+    'taggit',
+
     'blog',
+  
 ]
+
+INSTALLED_APPS += ('django_summernote', )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,9 +139,19 @@ MDIA_URL = '/media/'
 
 MEDIA_ROOT =BASE_DIR / 'media/'
 
+CLOUDINARY_STORAGE ={
+    'CLOUD_NAME':'secp',
+    'API_KEY':'393895353783933',
+    'API_SECRET':'y_3O_6mA-OhTbaKtmVAixg21fvc'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 django_heroku.settings(locals())
